@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meditation Timer</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="app-header">
+      <h1>Meditation Timer</h1>
+      <button id="themeToggle" class="icon-toggle" title="Theme: Auto" aria-label="Toggle theme">
+        <span class="icon">🌗</span>
+      </button>
+    </header>
+
+    <main class="container">
+      <section class="display" aria-live="polite" aria-atomic="true">
+        <div class="time-wrap">
+          <svg class="ring" viewBox="0 0 120 120" width="260" height="260" aria-hidden="true">
+            <defs>
+              <linearGradient id="grad" x1="0" y1="0" x2="120" y2="120" gradientUnits="userSpaceOnUse">
+                <stop class="grad-stop g1" offset="0%" stop-color="#66e3b0" />
+                <stop class="grad-stop g2" offset="100%" stop-color="#7aa8ff" />
+              </linearGradient>
+            </defs>
+            <circle class="ring-bg" cx="60" cy="60" r="54" />
+            <circle id="progress" class="ring-fg" cx="60" cy="60" r="54" />
+          </svg>
+          <div id="time" class="time">00:00</div>
+        </div>
+        <div id="status" class="status">Ready</div>
+      </section>
+
+      <section class="controls">
+        <div class="row">
+          <label for="minutes">
+            Duration (minutes)
+            <input id="minutes" type="number" min="1" max="180" value="10" />
+          </label>
+          <button class="btn" id="applyDuration" title="Set duration">Set</button>
+        </div>
+
+        <div class="row presets">
+          <span>Presets:</span>
+          <button class="chip" data-min="1">1m</button>
+          <button class="chip" data-min="5">5m</button>
+          <button class="chip" data-min="10">10m</button>
+          <button class="chip" data-min="15">15m</button>
+          <button class="chip" data-min="20">20m</button>
+        </div>
+
+        <div class="row actions">
+          <button class="btn primary" id="start">Start</button>
+          <button class="btn" id="pause" disabled>Pause</button>
+          <button class="btn" id="reset" disabled>Reset</button>
+        </div>
+
+        <div class="row options">
+          <label class="toggle">
+            <input id="startBell" type="checkbox" checked />
+            <span>Start bell</span>
+          </label>
+          <label class="toggle">
+            <input id="endBell" type="checkbox" checked />
+            <span>End bell</span>
+          </label>
+        </div>
+      </section>
+
+      <footer class="foot">
+        <small>Tip: keep the tab active to ensure precise timing.</small>
+      </footer>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+  </html>
